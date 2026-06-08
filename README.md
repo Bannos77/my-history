@@ -13,10 +13,10 @@ De focus van deze demo ligt niet op een volledig werkende databank, maar op het 
 De demo staat online via Netlify.
 
 Live versie:  
-`[MyHistory Antwerpen](https://myhistory-antwerpen.netlify.app/)`
+[MyHistory Antwerpen](https://myhistory-antwerpen.netlify.app/)
 
 GitHub repository:  
-`[Mijn Github](https://github.com/Bannos77/my-history)`
+[Mijn Github](https://github.com/Bannos77/my-history)
 
 ---
 
