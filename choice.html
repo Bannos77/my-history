@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Keuzescherm - MyHistory Antwerpen</title>
+
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+
+<body>
+    <main class="choice-screen">
+
+        <button class="small-nav-button back-button js-link" data-link="index.html">
+            Terug
+          </button>
+    
+        <img 
+          src="/src/assets/myhistory-logo.png" 
+          alt="MyHistory Antwerpen logo" 
+          class="choice-logo"
+        />
+    
+        <section class="choice-content">
+
+            <button class="choice-card" data-link="guided-login.html">
+              <img 
+                src="/src/assets/icon-guided.svg" 
+                alt="" 
+                class="choice-icon"
+              />
+          
+              <span>Zoeken met<br>begeleiding</span>
+            </button>
+          
+            <button class="choice-card" data-link="dashboard.html">
+              <img 
+                src="/src/assets/icon-search.svg" 
+                alt="" 
+                class="choice-icon"
+              />
+          
+              <span>Vrij Zoeken</span>
+            </button>
+          
+          </section>
+    
+        <script type="module" src="/src/main.js"></script>
+</body>
+</html>

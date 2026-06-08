@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyHistory Antwerpen - Persoon afbeeldingen</title>
+  </head>
+
+  <body>
+    <main class="person-screen">
+      <section class="result-screen">
+        <button class="small-nav-button result-back-button js-link" data-link="person-search.html">
+          Terug
+        </button>
+
+        <img
+          class="result-logo"
+          src="/src/assets/myhistory-logo.png"
+          alt="MyHistory Antwerpen"
+        />
+
+        <nav class="result-top-nav">
+          <button class="small-nav-button js-link" data-link="address.html">Adres</button>
+          <button class="small-nav-button js-link" data-link="period.html">Periode</button>
+          <button class="small-nav-button js-link" data-link="theme.html">Thema</button>
+          <button class="small-nav-button js-link" data-link="login.html">Login</button>
+        </nav>
+
+        <aside class="result-left">
+          <h1>Persoon</h1>
+
+          <input
+            class="result-search-input"
+            type="text"
+            placeholder="Zoeken"
+          />
+
+          <h2>Recente zoekopdrachten</h2>
+
+          <ul class="result-recent-searches">
+            <li>Diego M.</li>
+            <li>Mélanie F. L.</li>
+            <li>Landré</li>
+          </ul>
+        </aside>
+
+        <section class="result-book">
+          <div class="result-book-paper">
+            <div class="result-book-left result-detail-left">
+              <nav class="result-book-links result-book-links-detail">
+                <button class="js-link" data-link="person-result.html">Bio</button>
+                <button class="active">Afbeeldingen</button>
+                <button class="js-link" data-link="person-result-files">Bestanden</button>
+                <button class="js-link" data-link="person-result-info.html">Informatie</button>
+                <button class="js-link" data-link="person-result-family">Familie</button>
+                <button class="js-link" data-link="person-result-sources.html">Bronnen</button>
+              </nav>
+            </div>
+
+            <div class="result-book-right images-page">
+              <div class="images-grid">
+                <div class="archive-photo archive-photo-small">
+                  <img src="/src/assets/person-image-1.png" alt="Archiefafbeelding 1" />
+                </div>
+
+                <div class="archive-photo archive-photo-small">
+                  <img src="/src/assets/profile-esteban.png" alt="Portret van Esteban Martinez" />
+                </div>
+
+                <div class="archive-photo archive-photo-wide">
+                  <img src="/src/assets/person-image-3.png" alt="Groepsfoto" />
+                </div>
+              </div>
+
+              <div class="result-pagination">
+                &lt; [1] 2 3 ... 8 &gt;
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

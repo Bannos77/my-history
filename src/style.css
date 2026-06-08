@@ -1,0 +1,1592 @@
+@import url("https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Cutive Mono", "Courier New", monospace;
+  background-color: #1f1f1f;
+}
+
+/* Hoofdscherm */
+.start-screen {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  background-image: url("/src/assets/paper-texture.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  cursor: pointer;
+}
+
+/* Taalbuttons rechtsboven */
+.language-switcher {
+  position: absolute;
+  top: 80px;
+  right: 100px;
+
+  display: flex;
+  gap: 32px;
+
+  z-index: 10;
+}
+
+.language-button {
+  min-width: 90px;
+  padding: 10px 18px;
+
+  border: none;
+  background-color: #f4eed8;
+  color: #1f1f1f;
+
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 28px;
+  letter-spacing: 2px;
+
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.language-button.active {
+  background-color: #4b0711;
+  color: #ffffff;
+}
+
+/* Midden content */
+.start-content {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+/* Logo */
+.logo {
+  width: 580px;
+  max-width: 60vw;
+  height: auto;
+  margin-top: 100px;
+  margin-bottom: 90px;
+}
+
+/* Kleine instructietekst */
+.instruction-text {
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 28px;
+  line-height: 1.25;
+  letter-spacing: 8px;
+  color: #1f1f1f;
+
+  animation: softBlink 2.5s ease-in-out infinite;
+}
+
+@keyframes softBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.55;
+  }
+}
+
+/* Responsief voor kleinere schermen */
+@media (max-width: 900px) {
+  .language-switcher {
+    top: 40px;
+    right: 40px;
+    gap: 16px;
+  }
+
+  .language-button {
+    min-width: 50px;
+    font-size: 20px;
+    padding: 8px 12px;
+  }
+
+  .logo {
+    width: 420px;
+    max-width: 75vw;
+  }
+
+  .instruction-text {
+    font-size: 16px;
+    letter-spacing: 5px;
+  }
+}
+
+/* choice screen */
+.choice-screen {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  background-image: url("/src/assets/paper-texture.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.small-nav-button {
+  width: 90px;
+  height: 52px;
+
+  border: none;
+  background-color: #f4eed8;
+  color: #1f1f1f;
+
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 16px;
+  letter-spacing: 2px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.small-nav-button:active,
+.small-nav-button.selected {
+  background-color: #963d1f;
+  color: #fff5d6;
+  transform: scale(0.96);
+}
+
+/* Terugknop linksboven */
+.back-button {
+  position: absolute;
+  top: 130px;
+  left: 100px;
+
+  border: none;
+  background-color: #f4eed8;
+  color: #1f1f1f;
+
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 18px;
+  letter-spacing: 2px;
+
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+
+  transition: 
+    background-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.back-button.selected {
+  background-color: #963d1f;
+  color: #fff5d6;
+  transform: scale(0.96);
+}
+
+.back-button:active {
+  background-color: #963d1f;
+  color: #fff5d6;
+  transform: scale(0.96);
+}
+
+/* Klein logo bovenaan */
+.choice-logo {
+  position: absolute;
+  top: 125px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 170px;
+  height: auto;
+}
+
+/* Container van de 2 knoppen */
+.choice-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 95px;
+
+  margin-top: 80px;
+}
+
+/* Grote keuze knoppen */
+.choice-card {
+  width: 245px;
+  height: 335px;
+
+  background-color: #f2edcf;
+  border: 4px solid #d98b3a;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+
+  transition: 
+    background-color 0.15s ease,
+    transform 0.15s ease,
+    color 0.15s ease;
+}
+
+/* Icoon in de kaart */
+.choice-icon {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 60px;
+
+  transition: filter 0.15s ease;
+}
+
+/* Tekst in de kaart */
+.choice-card span {
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 21px;
+  line-height: 1.3;
+  letter-spacing: 4px;
+  color: #1f1f1f;
+  text-align: center;
+}
+
+/* Hover op laptop/desktop */
+.choice-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Wanneer je erop drukt */
+.choice-card:active,
+.choice-card.selected {
+  background-color: #963d1f;
+  transform: scale(0.98);
+}
+
+/* Tekst wordt wit */
+.choice-card:active span,
+.choice-card.selected span {
+  color: #fff5d6;
+}
+
+/* Icoon wordt licht/wit als je een donkere SVG/PNG gebruikt */
+.choice-card:active .choice-icon,
+.choice-card.selected .choice-icon {
+  filter: brightness(0) saturate(100%) invert(92%) sepia(19%) saturate(521%) hue-rotate(357deg) brightness(108%) contrast(92%);
+}
+
+.dashboard-screen {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  background-image: url("/src/assets/paper-texture.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Logo dashboard */
+.dashboard-logo {
+  position: absolute;
+  top: 190px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 280px;
+  height: auto;
+}
+
+/* Login knop rechts */
+.login-button {
+  position: absolute;
+  top: 130px;
+  right: 100px;
+
+  border: none;
+  background-color: #f4eed8;
+  color: #1f1f1f;
+
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 16px;
+  letter-spacing: 2px;
+
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.login-button:active,
+.login-button.selected {
+  background-color: #963d1f;
+  color: #fff5d6;
+  transform: scale(0.96);
+}
+
+/* Container van de 4 dashboard opties */
+.dashboard-options {
+  position: absolute;
+  top: 390px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Kleine dashboard kaarten */
+.dashboard-card {
+  width: 160px;
+  height: 160px;
+
+  background-color: #f2edcf;
+  border: 4px solid #d98b3a;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease,
+    color 0.15s ease;
+}
+
+.dashboard-icon {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  margin-bottom: 18px;
+
+  transition: filter 0.15s ease;
+}
+
+.dashboard-card span {
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 19px;
+  letter-spacing: 4px;
+  color: #1f1f1f;
+  text-align: center;
+}
+
+/* Hover */
+.dashboard-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Pressed state */
+.dashboard-card:active,
+.dashboard-card.selected {
+  background-color: #963d1f;
+  transform: scale(0.96);
+}
+
+.dashboard-card:active span,
+.dashboard-card.selected span {
+  color: #fff5d6;
+}
+
+.dashboard-card:active .dashboard-icon,
+.dashboard-card.selected .dashboard-icon {
+  filter: brightness(0) saturate(100%) invert(92%) sepia(19%) saturate(521%) hue-rotate(357deg) brightness(108%) contrast(92%);
+}
+
+.person-screen {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  background-image: url("/src/assets/paper-texture.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Logo bovenaan midden */
+.person-logo {
+  position: absolute;
+  top: 105px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 250px;
+  height: auto;
+}
+
+/* Terug knop blijft links */
+.back-button {
+  position: absolute;
+  top: 135px;
+  left: 95px;
+}
+
+/* Navigatie rechtsboven */
+.top-nav {
+  position: absolute;
+  top: 135px;
+  right: 95px;
+
+  display: flex;
+  gap: 22px;
+}
+
+/* Linker kolom */
+.person-left {
+  position: absolute;
+  top: 130px;
+  left: 215px;
+
+  width: 430px;
+}
+
+/* Titel Persoon */
+.person-left h1 {
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 31px;
+  font-weight: normal;
+  letter-spacing: 13px;
+  color: #1f1f1f;
+
+  margin: 0 0 54px 0;
+}
+
+/* Zoekveld */
+.search-input {
+  width: 380px;
+  height: 40px;
+
+  background-color: #e9e3c6;
+  border: 2px solid rgba(70, 70, 40, 0.22);
+  border-radius: 7px;
+
+  padding: 0 16px;
+
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 18px;
+  letter-spacing: 6px;
+  color: #1f1f1f;
+
+  margin-bottom: 36px;
+
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #1f1f1f;
+  opacity: 1;
+}
+
+.search-input:focus {
+  border-color: rgba(75, 7, 17, 0.45);
+}
+
+/* Recente zoekopdrachten */
+.person-left h2 {
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 22px;
+  font-weight: normal;
+  letter-spacing: 8px;
+  line-height: 1.35;
+  color: #1f1f1f;
+
+  margin: 0 0 30px 0;
+}
+
+/* Lijst recente zoekopdrachten */
+.recent-searches {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recent-searches li {
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 20px;
+  letter-spacing: 6px;
+  color: #1f1f1f;
+
+  margin-bottom: 28px;
+}
+
+/* Archiefboek onderaan rechts */
+.archive-book {
+  position: absolute;
+  right: 115px;
+  bottom: -8px;
+
+  width: 680px;
+  height: 520px;
+
+  display: flex;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  padding: 10px;
+
+  border: none;
+  border-radius: 12px 12px 0 0;
+
+  background-color: #d18a3b;
+  background-image:
+    linear-gradient(
+      rgba(209, 138, 59, 0.84),
+      rgba(209, 138, 59, 0.84)
+    ),
+    url("/src/assets/orange-texture.jpg");
+  background-size: cover, 90px 90px;
+  background-repeat: no-repeat, repeat;
+
+  box-shadow:
+    10px 10px 18px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(120, 32, 25, 0.25);
+}
+
+/* Papier binnenkant */
+.name-list {
+  flex: 1;
+
+  padding: 48px 58px 24px 58px;
+
+  background-color: #e8e0bf;
+
+  background-image:
+    linear-gradient(
+      rgba(232, 224, 191, 0.72),
+      rgba(232, 224, 191, 0.72)
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 39px,
+      rgba(70, 60, 45, 0.22) 39px,
+      rgba(70, 60, 45, 0.22) 40px
+    );
+
+  background-position: 0 0, 0 0;
+
+  overflow-y: auto;
+
+  box-shadow:
+    inset 0 0 18px rgba(80, 65, 35, 0.08),
+    inset 0 0 0 1px rgba(70, 60, 45, 0.12);
+}
+
+/* Titel letter */
+.name-list h2 {
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 29px;
+  font-weight: normal;
+  letter-spacing: 6px;
+  line-height: 40px;
+
+  color: #4b0711;
+
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+
+/* Namen */
+.name-result {
+  width: 100%;
+
+  display: block;
+  text-align: left;
+
+  background: transparent;
+  border: none;
+
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 22px;
+  letter-spacing: 6px;
+  line-height: 40px;
+
+  color: #1f1f1f;
+
+  padding: 0;
+  margin: 0;
+
+  cursor: pointer;
+
+  transition:
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.name-result:hover {
+  color: #4b0711;
+  transform: translateX(4px);
+}
+
+.name-result:active,
+.name-result.selected {
+  color: #963d1f;
+  transform: translateX(8px);
+}
+
+/* Alfabetkolom */
+.alphabet-tabs {
+  width: 78px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background-color: #d18a3b;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.alphabet-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+/* Alfabetknoppen */
+.alphabet-tab {
+  min-height: 64px;
+
+  border: none;
+
+  border-left: 2px solid rgba(130, 32, 25, 0.74);
+  border-right: 2px solid rgba(130, 32, 25, 0.74);
+  border-bottom: 2px solid rgba(130, 32, 25, 0.74);
+
+  background-color: #d18a3b;
+  background-image:
+    linear-gradient(
+      rgba(209, 138, 59, 0.88),
+      rgba(209, 138, 59, 0.88)
+    ),
+    url("/src/assets/orange-texture.jpg");
+  background-size: cover, 90px 90px;
+  background-repeat: no-repeat, repeat;
+
+  color: #fff5d6;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+
+  cursor: pointer;
+}
+
+/* Bovenrand toevoegen aan de eerste tab, dus A */
+.alphabet-tab:first-child {
+  border-top: 2px solid rgba(130, 32, 25, 0.74);
+}
+
+/* Actieve rode letter met textuur */
+.alphabet-tab.active,
+.alphabet-tab:active {
+  background-color: #670613;
+  background-image:
+    linear-gradient(
+      rgba(103, 6, 19, 0.78),
+      rgba(103, 6, 19, 0.78)
+    ),
+    url("/src/assets/orange-texture.jpg");
+  background-size: cover, 90px 90px;
+  background-repeat: no-repeat, repeat;
+
+  border-left: 2px solid rgba(130, 32, 25, 0.95);
+  border-right: 2px solid rgba(130, 32, 25, 0.95);
+  border-bottom: 2px solid rgba(130, 32, 25, 0.95);
+
+  color: #fff5d6;
+}
+
+/* Bovenrand blijft ook zichtbaar wanneer A actief is */
+.alphabet-tab.active:first-child,
+.alphabet-tab:active:first-child {
+  border-top: 2px solid rgba(130, 32, 25, 0.95);
+}
+
+.empty-result {
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 20px;
+  letter-spacing: 5px;
+  line-height: 40px;
+  color: #1f1f1f;
+}
+
+
+/* PERSOON RESULTAAT SCHERM */
+.result-screen {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  background-image: url("/src/assets/paper-texture.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  font-family: "Cutive Mono", "Courier New", monospace;
+  color: #1f1f1f;
+}
+
+/* Terugknop resultaat */
+.result-back-button {
+  position: absolute;
+  top: 120px;
+  left: 90px;
+}
+
+/* Logo resultaat */
+.result-logo {
+  position: absolute;
+  top: 88px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 280px;
+  height: auto;
+}
+
+/* Navigatie rechtsboven */
+.result-top-nav {
+  position: absolute;
+  top: 120px;
+  right: 90px;
+
+  display: flex;
+  gap: 22px;
+}
+
+/* Zorg dat de knoppen op dit scherm dezelfde schaal houden als elders */
+.result-screen .small-nav-button {
+  width: 90px;
+  height: 52px;
+
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+/* Linker kolom */
+.result-left {
+  position: absolute;
+  top: 130px;
+  left: 240px;
+
+  width: 300px;
+}
+
+.result-left h1 {
+  font-size: 30px;
+  font-weight: normal;
+  letter-spacing: 12px;
+  line-height: 1;
+
+  margin: 0 0 48px 0;
+}
+
+/* Zoekveld */
+.result-search-input {
+  width: 205px;
+  height: 40px;
+
+  background-color: rgba(244, 238, 216, 0.88);
+  border: none;
+  border-radius: 6px;
+
+  padding: 0 12px;
+
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 17px;
+  letter-spacing: 3px;
+  color: #1f1f1f;
+
+  margin-bottom: 28px;
+
+  outline: none;
+  box-shadow: inset 0 0 0 1px rgba(70, 60, 45, 0.12);
+}
+
+.result-search-input::placeholder {
+  color: #1f1f1f;
+  opacity: 1;
+}
+
+/* Recente zoekopdrachten */
+.result-left h2 {
+  font-size: 20px;
+  font-weight: normal;
+  letter-spacing: 5px;
+  line-height: 1.45;
+
+  margin: 0 0 22px 0;
+}
+
+.result-recent-searches {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.result-recent-searches li {
+  font-size: 18px;
+  letter-spacing: 4px;
+  line-height: 1.4;
+
+  margin-bottom: 24px;
+  padding-left: 14px;
+}
+
+/* Boek buitenkant */
+.result-book {
+  position: absolute;
+  right: 100px;
+  bottom: -8px;
+
+  width: 860px;
+  height: 520px;
+
+  padding: 10px;
+
+  border-radius: 8px 8px 0 0;
+
+  background-color: #c88437;
+  background-image:
+    linear-gradient(
+      rgba(200, 132, 55, 0.9),
+      rgba(200, 132, 55, 0.9)
+    ),
+    url("/src/assets/orange-texture.jpg");
+
+  background-size: cover, 90px 90px;
+  background-repeat: no-repeat, repeat;
+
+  box-shadow:
+    8px 8px 14px rgba(0, 0, 0, 0.28),
+    inset 0 0 0 1px rgba(120, 55, 20, 0.25);
+
+  overflow: hidden;
+}
+
+/* Papier binnenkant */
+.result-book-paper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  overflow: hidden;
+
+  background-color: #eee7c9;
+  background-image:
+    linear-gradient(
+      rgba(238, 231, 201, 0.78),
+      rgba(238, 231, 201, 0.78)
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 36px,
+      rgba(70, 60, 45, 0.14) 36px,
+      rgba(70, 60, 45, 0.14) 37px
+    ),
+    url("/src/assets/paper-texture.jpg");
+
+  background-size: cover, auto, cover;
+  background-position: center, 0 0, center;
+
+  box-shadow:
+    inset 0 0 18px rgba(80, 65, 35, 0.08),
+    inset 0 0 0 1px rgba(70, 60, 45, 0.10);
+}
+
+.result-book-paper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 58px;
+  pointer-events: none;
+  z-index: 4;
+
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.06) 20%,
+    rgba(0, 0, 0, 0.14) 50%,
+    rgba(0, 0, 0, 0.06) 80%,
+    rgba(0, 0, 0, 0.02) 100%
+  );
+
+  opacity: 0.65;
+}
+
+.result-book-paper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  pointer-events: none;
+  z-index: 3;
+
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.035) 30%,
+    rgba(255, 255, 255, 0.04) 50%,
+    rgba(0, 0, 0, 0.035) 70%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  opacity: 0.35;
+}
+
+/* Middenplooi
+.result-book-shadow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+
+  width: 78px;
+  transform: translateX(-50%);
+
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(0, 0, 0, 0.16),
+    rgba(255, 255, 255, 0.22),
+    rgba(0, 0, 0, 0.06)
+  );
+
+  pointer-events: none;
+  z-index: 5;
+} */
+
+/* Linker pagina */
+.result-book-left {
+  position: relative;
+  z-index: 10;
+
+  padding: 78px 0 0 38px;
+}
+
+.result-book-left h2 {
+  color: #c00032;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 32px;
+
+  margin: 0 0 18px 0;
+}
+
+/* Linkermenu in boek */
+.result-book-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.result-book-links button {
+  height: 43px;
+
+  border: none;
+  background: transparent;
+  padding: 0;
+
+  color: #1f1f1f;
+
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 22px;
+  letter-spacing: 5px;
+  line-height: 32px;
+
+  text-decoration: underline;
+  text-underline-offset: 5px;
+
+  cursor: pointer;
+}
+
+.result-book-links button:hover {
+  color: #4b0711;
+}
+
+/* Rechter pagina */
+.result-book-right {
+  position: relative;
+  z-index: 10;
+
+  padding: 58px 50px 0 45px;
+}
+
+.result-profile-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+.result-profile-info h2 {
+  font-size: 23px;
+  font-weight: normal;
+  line-height: 25px;
+  letter-spacing: 4px;
+
+  margin: 0;
+}
+
+.result-date {
+  margin-top: 4px;
+
+  font-size: 12px;
+  letter-spacing: 1.8px;
+  line-height: 26px;
+}
+
+.result-born {
+  margin-top: 20px;
+
+  font-size: 14px;
+  line-height: 27px;
+  letter-spacing: 2.5px;
+}
+
+/* Foto */
+.result-photo {
+  position: relative;
+
+  width: 140px;
+  height: 190px;
+
+  flex-shrink: 0;
+  margin-top: -5px;
+}
+
+.result-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.result-photo::before {
+  top: 0;
+  left: 0;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.result-photo::after {
+  right: 0;
+  bottom: 0;
+  clip-path: polygon(100% 100%, 0 100%, 100% 0);
+}
+
+/* Bio tekst */
+.result-bio-text {
+  margin-top: 25px;
+
+  font-size: 12px;
+  line-height: 27px;
+  letter-spacing: 1.5px;
+}
+
+.result-read-more {
+  border: none;
+  background: transparent;
+
+  padding: 0;
+  margin-top: -2px;
+
+  color: #c00032;
+
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 12px;
+  line-height: 27px;
+  letter-spacing: 1.8px;
+
+  cursor: pointer;
+}
+
+/* PERSOON RESULTAAT - AFBEELDINGEN PAGINA */
+
+.result-book-right.images-page {
+  padding: 34px 42px 0 42px;
+
+  height: 100%;
+  overflow: hidden;
+}
+
+.images-grid {
+  width: 100%;
+  height: 410px;
+
+  display: grid;
+  grid-template-columns: 132px 132px;
+  grid-template-rows: 170px 170px;
+  gap: 24px 34px;
+
+  justify-content: center;
+  align-content: start;
+}
+
+.archive-photo {
+  position: relative;
+
+  background-color: rgba(244, 238, 216, 0.4);
+}
+
+.archive-photo img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+  object-fit: cover;
+}
+
+/* Twee kleine foto's bovenaan */
+.archive-photo-small {
+  width: 132px;
+  height: 190px;
+}
+
+/* Grote foto onderaan */
+.archive-photo-wide {
+  grid-column: 1 / 3;
+
+  width: 229px;
+  height: 197px;
+
+  justify-self: center;
+}
+
+.archive-photo::before {
+  top: 0;
+  left: 0;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.archive-photo::after {
+  right: 0;
+  bottom: 0;
+  clip-path: polygon(100% 100%, 0 100%, 100% 0);
+}
+
+/* Paginanummers bij afbeeldingen */
+.images-page .result-pagination {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 14px;
+  letter-spacing: 2px;
+
+  color: #1f1f1f;
+  z-index: 20;
+}
+
+/* PERSOON RESULTAAT - BESTANDEN PAGINA */
+
+.result-book-right.files-page {
+  padding: 68px 58px 0 45px;
+
+  height: 100%;
+  overflow: hidden;
+}
+
+.file-grid {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(3, 92px);
+  gap: 18px 28px;
+
+  justify-content: center;
+  align-content: start;
+}
+
+/* Bestand als klikbare kaart */
+.file-card {
+  width: 92px;
+  height: 125px;
+
+  border: none;
+  background-color: #d98b3a;
+  color: #1f1f1f;
+
+  font-family: "Cutive Mono", "Courier New", monospace;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px 6px;
+
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.file-card:hover {
+  transform: translateY(-3px);
+}
+
+.file-card:active,
+.file-card.selected {
+  background-color: #963d1f;
+  color: #F1EDCF;
+  transform: scale(0.96);
+}
+
+.file-card:active .file-icon-img,
+.file-card.selected .file-icon-img {
+  filter: brightness(0) saturate(100%) invert(92%) sepia(13%) saturate(431%) hue-rotate(359deg) brightness(106%) contrast(89%);
+}
+
+.file-icon-img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+/* Bestandsnaam onderaan */
+.file-name {
+  width: 80px;
+
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 1px;
+  text-align: center;
+
+  word-break: break-word;
+}
+
+/* PERSOON RESULTAAT - INFORMATIE PAGINA */
+
+/* Op detailpagina staat Bio als gewone link, niet meer als aparte titel */
+.result-book-left.result-detail-left {
+  padding: 78px 0 0 38px;
+}
+
+/* Verberg de losse h2 Bio als je die nog ergens gebruikt */
+.result-detail-left h2 {
+  display: none;
+}
+
+/* Linkerlijst op detailpagina */
+.result-book-links-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Alle knoppen blijven zwart en onderlijnd */
+.result-book-links-detail button {
+  height: 43px;
+
+  border: none;
+  background: transparent;
+  padding: 0;
+
+  color: #1f1f1f;
+
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 22px;
+  letter-spacing: 5px;
+  line-height: 32px;
+
+  text-decoration: underline;
+  text-underline-offset: 5px;
+
+  cursor: pointer;
+}
+
+/* Alleen actieve knop wordt rood */
+.result-book-links-detail button.active {
+  color: #c00032;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  text-decoration: none;
+}
+
+/* Rechterpagina met lange informatie */
+.result-book-right.information-page {
+  padding: 36px 58px 0 45px;
+}
+
+.information-page p {
+  width: 390px;
+
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: 1.2px;
+
+  color: #1f1f1f;
+
+  margin: 0 0 30px 0;
+}
+
+/* Paginanavigatie onderaan */
+.result-pagination {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 15px;
+  letter-spacing: 2px;
+
+  color: #1f1f1f;
+}
+
+
+/* PERSOON RESULTAAT - INFORMATIE PAGINA */
+
+/* Rechterpagina compacter */
+.result-book-right.information-page {
+  padding: 34px 56px 0 45px;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Scrollbaar tekstvlak */
+.information-page .information-scroll {
+  width: 390px;
+  max-height: 390px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding-right: 10px;
+
+  scrollbar-width: thin;
+}
+
+/* Tekst kleiner en dichter op de lijnen */
+.information-page p {
+  width: 100%;
+
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 13px;
+  line-height: 25px;
+  letter-spacing: 1.1px;
+
+  color: #1f1f1f;
+
+  margin: 0 0 24px 0;
+}
+
+/* Paginanummers altijd zichtbaar onderaan */
+.result-pagination {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 14px;
+  letter-spacing: 2px;
+
+  color: #1f1f1f;
+  z-index: 20;
+}
+
+/* Optioneel: scrollbar subtiel maken */
+.information-page .information-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.information-page .information-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(70, 60, 45, 0.28);
+  border-radius: 10px;
+}
+
+.information-page .information-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* DETAILPAGINA'S IN RESULTAATBOEK */
+/* Voor: Informatie / Bronnen / Familie / enz. */
+
+/* Linkerpagina voor vervolgschermen */
+.result-book-left.result-detail-left {
+  padding: 78px 0 0 38px;
+}
+
+/* Linkerlijst op detailpagina */
+.result-book-links-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Normale knoppen in de linkerlijst */
+.result-book-links-detail button {
+  height: 43px;
+
+  border: none;
+  background: transparent;
+  padding: 0;
+
+  color: #1f1f1f;
+
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 22px;
+  letter-spacing: 5px;
+  line-height: 32px;
+
+  text-decoration: underline;
+  text-underline-offset: 5px;
+
+  cursor: pointer;
+}
+
+/* Actieve knop, bijvoorbeeld Bronnen */
+.result-book-links-detail button.active {
+  color: #c00032;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  text-decoration: none;
+}
+
+/* PERSOON RESULTAAT - FAMILIE PAGINA */
+
+.result-book-right.family-page {
+  padding: 58px 45px 0 45px;
+
+  height: 100%;
+  overflow: hidden;
+}
+
+.family-page h2 {
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  line-height: 32px;
+
+  color: #1f1f1f;
+  text-align: center;
+
+  margin: 0 0 48px 0;
+}
+
+.family-tree-wrapper {
+  width: 100%;
+  height: 310px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.family-tree-image {
+  width: 360px;
+  max-width: 100%;
+  height: auto;
+
+  display: block;
+}
+
+/* PERSOON RESULTAAT - BRONNEN PAGINA */
+
+.result-book-right.sources-page {
+  padding: 50px 58px 0 45px;
+
+  height: 100%;
+  overflow: hidden;
+}
+
+.sources-section {
+  margin-bottom: 32px;
+}
+
+.sources-section h2 {
+  color: #4b0711;
+
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 2px;
+
+  margin: 0 0 12px 0;
+}
+
+.sources-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sources-section li {
+  font-family: "Cutive Mono", "Courier New", monospace;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 1px;
+
+  color: #1f1f1f;
+}

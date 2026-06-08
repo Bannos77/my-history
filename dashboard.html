@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Dashboard - MyHistory Antwerpen</title>
+</head>
+
+<body>
+  <main class="dashboard-screen">
+
+    <button class="small-nav-button back-button js-link" data-link="choice.html">
+      Terug
+    </button>
+
+    <button class="small-nav-button login-button js-link" data-link="login.html">
+      Login
+    </button>
+
+    <img 
+      src="/src/assets/myhistory-logo.png" 
+      alt="MyHistory Antwerpen logo" 
+      class="dashboard-logo"
+    />
+
+    <section class="dashboard-options">
+
+      <button class="dashboard-card" data-link="person-search.html">
+        <img 
+          src="/src/assets/icon-person.png" 
+          alt="" 
+          class="dashboard-icon"
+        />
+        <span>Persoon</span>
+      </button>
+
+      <button class="dashboard-card" data-link="address-search.html">
+        <img 
+          src="/src/assets/icon-address.png" 
+          alt="" 
+          class="dashboard-icon"
+        />
+        <span>Adres</span>
+      </button>
+
+      <button class="dashboard-card" data-link="period-search.html">
+        <img 
+          src="/src/assets/icon-period.png" 
+          alt="" 
+          class="dashboard-icon"
+        />
+        <span>Periode</span>
+      </button>
+
+      <button class="dashboard-card" data-link="theme-search.html">
+        <img 
+          src="/src/assets/icon-theme.png" 
+          alt="" 
+          class="dashboard-icon"
+        />
+        <span>Thema</span>
+      </button>
+
+    </section>
+
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
